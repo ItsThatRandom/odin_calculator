@@ -1,4 +1,92 @@
+body {
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#calculator, #display {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 20px;
+}
+
 #calculator {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: grey;
+    box-shadow: 10px 10px 10px black;
+}
+
+#display {
+    display: flex;
+    flex-direction: column;
+    max-width: 380px;
+    max-height: 80px;
+    justify-content: space-between;
+    background-color: aquamarine;
+    margin-bottom: 20px;
+}
+
+#display h3, h1 {
+    height: 40px;
+    width: 350px;
+    text-align: right;
+    margin: 0;
+    padding-right: 10px; 
+}
+
+#display h1 {
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#buttonOptions {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    max-width: fit-content;
+    justify-items: center;
+    gap: 10px;
+}
+
+button:hover {
+    text-shadow: 1px 1px 10px yellow;
+    color: yellow;
+}
+
+[data-number], [data-operator] {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 50%;
+}
+
+[data-operator] {
+    color: aquamarine;
+    background: darkcyan;
+}
+
+[data-operator="="], [data-operator="Del"], [data-operator="C"] {
+    width: 170px;
+}
+[data-operator="Del"] {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+[data-operator="C"] {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+[data-operator="="] {
+    grid-column-start: 2;
+    grid-column-end: 4;
 }

@@ -43,7 +43,12 @@ function operate(lastOperator, num1, num2) {
 }
 
 function displayAction(btn) {
-    displayCurrent.textContent += btn.dataset.number;
+    if (displayCurrent.textContent[0] == 0) {
+        displayCurrent.textContent = btn.dataset.number;
+    }
+    else {
+        displayCurrent.textContent += btn.dataset.number;
+    }
 }
 
 function displayOperation(updated, cleared) {
@@ -61,9 +66,6 @@ function displayOperation(updated, cleared) {
 function selectOperation(btn) {
     switch(btn.dataset.operator) {
         case "=":
-            if (infiniteCheck()) {
-                return;
-            }
             result();
             break;
         
@@ -87,6 +89,9 @@ function selectOperation(btn) {
 
 function result() {
     if (num1 == null || displayCurrent.textContent == "") {
+        return;
+    }
+    if (infiniteCheck()) {
         return;
     }
 
